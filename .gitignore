@@ -1,3 +1,5 @@
+dataset/tiny-imagenet-200/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
