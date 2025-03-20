@@ -10,7 +10,7 @@ from data.dataloader import TinyImagenetDataLoader
 wandb.init(project="tiny-imagenet-training", config={
     "learning_rate": 0.001,
     "batch_size": 64,
-    "epochs": 10,
+    "epochs": 50,
     "optimizer": "SGD"
 })
 
@@ -28,12 +28,13 @@ val_loader = data_loader.get_val_loader()
 
 model = CustomNet().cuda()
 criterion = nn.CrossEntropyLoss().cuda()
-optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+# optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+optimizer = torch.optim.AdamW(model.resnet.fc.parameters(), lr=0.001, weight_decay=1e-4)
 
 best_acc = 0
 
 # Run the training process for {num_epochs} epochs
-num_epochs = 10
+num_epochs = 50
 for epoch in range(1, num_epochs + 1):
     print(f"\nEpoch {epoch}/{num_epochs}:")
 
