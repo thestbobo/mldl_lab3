@@ -1,3 +1,5 @@
+import os
+
 from torchvision.datasets import ImageFolder
 import torchvision.transforms as T
 from torch.utils.data import DataLoader
@@ -17,12 +19,12 @@ class TinyImagenetDataLoader:
         pass
 
     def get_val_loader(self):
-        val_dataset = ImageFolder(root=f"{self.root_dir}/val",
+        val_dataset = ImageFolder(root=os.path.join(self.root_dir, "val"),
                                   transform=self.transform)
         return DataLoader(val_dataset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers)
 
     def get_train_loader(self):
-        train_dataset = ImageFolder(root=f"{self.root_dir}/train",
+        train_dataset = ImageFolder(root=os.path.join(self.root_dir, "train"),
                                     transform=self.transform)
         return DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=self.num_workers)
 
