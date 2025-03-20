@@ -70,3 +70,4 @@ def train(epoch, model, train_loader, criterion, optimizer):
     train_loss = running_loss / len(train_loader)
     train_accuracy = 100. * correct / total
     print(f'Train Epoch: {epoch} Loss: {train_loss:.6f} Acc: {train_accuracy:.2f}%')
+    return train_loss, train_accuracy
