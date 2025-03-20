@@ -15,7 +15,7 @@ class TinyImagenetDataLoader:
                                     ])
         self.num_workers = num_workers
         self.batch_size = batch_size
-        self.root_dir = "/dataset/tiny-imagenet-200"
+        self.root_dir = "dataset/tiny-imagenet-200"
         pass
 
     def get_val_loader(self):
