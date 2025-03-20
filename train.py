@@ -22,7 +22,7 @@ else:
     print("GPU NON disponibile, sto utilizzando la CPU!")
 
 
-data_loader = TinyImagenetDataLoader(batch_size=64, num_workers=8, root_dir="tiny-imagenet-200")
+data_loader = TinyImagenetDataLoader(batch_size=64, num_workers=8, root_dir="dataset/tiny-imagenet-200")
 train_loader = data_loader.get_train_loader()
 val_loader = data_loader.get_val_loader()
 
